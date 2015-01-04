@@ -97,13 +97,13 @@ namespace oclgrind
   } Size3;
 
   // Structure for a value with a size/type
-  struct _TypedValue_
+  struct TypedValue
   {
     unsigned size;
     unsigned num;
     unsigned char *data;
 
-    struct _TypedValue_ clone() const;
+    TypedValue clone() const;
 
     double   getFloat(unsigned index = 0) const;
     size_t   getPointer(unsigned index = 0) const;
@@ -113,9 +113,7 @@ namespace oclgrind
     void     setPointer(size_t value, unsigned index = 0);
     void     setSInt(int64_t value, unsigned index = 0);
     void     setUInt(uint64_t value, unsigned index = 0);
-
   };
-  typedef _TypedValue_ TypedValue;
 
   // Private memory map type
   typedef std::map<const llvm::Value*,TypedValue> TypedValueMap;

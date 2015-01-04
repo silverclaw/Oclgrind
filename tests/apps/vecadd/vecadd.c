@@ -155,7 +155,8 @@ int main(int argc, char *argv[])
   for (int i = 0; i < N; i++)
   {
     float ref = h_a[i] + h_b[i];
-    if (fabs(ref - h_c[i]) > TOL)
+    const float diff = ref - h_c[i];
+    if (fabs(diff) > TOL)
     {
       if (errors < MAX_ERRORS)
       {

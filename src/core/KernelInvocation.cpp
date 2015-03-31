@@ -30,11 +30,11 @@ using namespace std;
 #else
 #define THREAD_LOCAL thread_local
 #endif
-struct
+static THREAD_LOCAL struct
 {
   WorkGroup *workGroup;
   WorkItem  *workItem;
-} static THREAD_LOCAL workerState;
+} workerState;
 
 static atomic<unsigned> nextGroupIndex;
 
